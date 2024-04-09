@@ -10,6 +10,7 @@ let timerInterval = setInterval(() => {
         seconds--;
     } else if (!hours && !minutes) {
         clearInterval(timerInterval);
+        location.assign("https://speedtest.selectel.ru/10GB")
         alert('Вы победили в конкурсе!');
     } else if (!minutes) {
         hours--;
