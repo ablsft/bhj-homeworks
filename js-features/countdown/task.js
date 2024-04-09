@@ -5,7 +5,7 @@ let hours = +timestamp[0];
 let minutes = +timestamp[1];
 let seconds = +timestamp[2];
 
-var timerInterval = setInterval(() => {
+let timerInterval = setInterval(() => {
     if (seconds) {
         seconds--;
     } else if (!hours && !minutes) {
