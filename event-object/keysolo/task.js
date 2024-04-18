@@ -4,6 +4,7 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
+    this.timeElement = container.querySelector('.status__time');
 
     this.reset();
 
@@ -41,6 +42,15 @@ class Game {
 
     let checkSymbolContext = checkSymbol.bind(this);
     window.addEventListener('keyup', checkSymbolContext);
+
+    setInterval(() => {
+      this.timeElement.textContent = Number(this.timeElement.textContent) - 1;
+
+      if (this.timeElement.textContent === '0') {
+        alert('Вы проиграли!');
+        this.reset();
+      } 
+    }, 1000)
   }
 
   success() {
@@ -72,6 +82,7 @@ class Game {
     const word = this.getWord();
 
     this.renderWord(word);
+    this.timeElement.textContent = word.length;
   }
 
   getWord() {
